@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='estilo_pagina_principal.css')}}">
+    <title>Documentacao da API</title>
+</head>
+<body>
+    <div class="container">
+        <h1> ! Documentação da API Bancária ! </h1>
+        
+        <section>
+            <h2>informações da API</h2>
+
+            <p class="warning"><strong>Aviso:</strong> Todos os comandos abaixo requerem a inclusão de uma <code>key</code> como argumento para autenticação.</p>
+            
+            <div class="command">
+                <h3>/create</h3>
+                <p>Cria um usuário no banco de dados bancário. Os seguintes campos são obrigatórios:</p>
+                <ul>
+                    <li>CPF</li>
+                    <li>Nome</li>
+                    <li>Email</li>
+                    <li>Nome da Mãe</li>
+                    <li>Senha</li>
+                    <li>Data de nascimento</li>
+                </ul>
+            </div>
+            
+            <div class="command">
+                <h3>/delete</h3>
+                <p>Deleta um usuário específico. É necessário fornecer o campo <code>id</code>.</p>
+            </div>
+
+            <div class="command">
+                <h3>/update</h3>
+                <p>Atualiza os dados de um usuário específico. É necessário informar o <code>id</code> e os campos a serem atualizados, como:</p>
+                <ul>
+                    <li>CPF</li>
+                    <li>Nome</li>
+                    <li>Email</li>
+                    <li>Nome da Mãe</li>
+                    <li>Senha</li>
+                </ul>
+            </div>
+
+            <div class="command">
+                <h3>/read</h3>
+                <p>Solicita as informações de um usuário específico. É necessário fornecer o campo <code>id</code> do usuário.</p>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
