@@ -1,4 +1,4 @@
-from flask import Flask,request,Blueprint, render_template
+from flask import Flask,request,Blueprint, jsonify,render_template
 from Database.database import Usuario,Chaves
 app = Blueprint('Create',__name__)
 
@@ -25,11 +25,18 @@ def create():
 
     elif valida_api is None:
 #   retorna paginas de erro 
-        return render_template('Erros_pagina_create/chave_api_invalida.html')
+        
+        return retornar_json({'Error':'Nao autorizado',
+         'Message':'Chave Api Invalida',
+         'status code': 403},403)
     elif verificar_user_existente(cpf,email) == 'existe':
-        return 'aa'
+        return retornar_json({'Error':'Usuario ja existe',
+                              'Message':'O usuario ja existe no banco de dados',
+                              'status code': 403},403)
     else:
-        return render_template('Erros_pagina_create/campos_vazios_invalidos.html')
+        return retornar_json({'Error':'Campos invalidos',
+                              'Message':'Os argumentos passados estao invalidos ou incorretos',
+                              'status code': 403},403)
     
 # verifica e trata os valores recebidos
 def verificar_valores(valores : list):
@@ -48,7 +55,7 @@ def verificar_chave_api(key : str):
     except:
         return None
 
-# verifica se o cpf e o email estao cadastrados 
+# verifica se o cpf e o email estao cadastrados na db 
 
 def verificar_user_existente(cpf,email):
     try:
@@ -57,3 +64,6 @@ def verificar_user_existente(cpf,email):
         return f'existe'
     except Exception as e :
         return 'nao'
+
+def retornar_json(data,code):
+    return jsonify(data), code
