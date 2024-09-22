@@ -1,9 +1,9 @@
 from flask import Flask,Blueprint, jsonify, request
 from Database.database import Chaves, Usuario
 
-app = Blueprint('/delete',__name__)
+delete = Blueprint('/delete',__name__)
 
-@app.route('/')
+@delete.route('/')
 
 # pagina principal 
 def pagina_delete():

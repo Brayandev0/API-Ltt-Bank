@@ -1,10 +1,10 @@
-from flask import Flask,request,Blueprint, jsonify,render_template
+from flask import Flask,request,Blueprint, jsonify
 from Database.database import Usuario,Chaves
-app = Blueprint('Create',__name__)
+create_ = Blueprint('Create',__name__)
 
-@app.route("/",methods=['GET'])
+@create_.route("/",methods=['GET'])
 
-# Cria a pagina create 
+# Cria a pagina create
 def create():
     nome = request.args.get('nome')
     key_api = request.args.get('key')

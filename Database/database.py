@@ -1,4 +1,4 @@
-import peewee 
+import peewee # type: ignore
 from peewee import CharField,TextField,IntegerField,DateField, Model
 db = peewee.MySQLDatabase(
     'Banco_de_Dados',

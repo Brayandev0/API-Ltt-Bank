@@ -1,11 +1,16 @@
 from flask import Flask, render_template
-from create import app as create_page
-from delete import app as delete_page
-app = Flask(__name__)
-app.register_blueprint(create_page, url_prefix="/create")
+from create import create_ 
+from delete import delete
+from read import read
+from flask import Blueprint
+central_page = Flask(__name__)
 
-app.register_blueprint(delete_page, url_prefix='/delete')
-@app.route("/")
+central_page.register_blueprint(read,url_prefix="/read")
+central_page.register_blueprint(create_, url_prefix="/create")
+central_page.register_blueprint(delete, url_prefix="/delete")
+
+@central_page.route("/")
 def Pagina_principal():
     return render_template('documentacao_api.html')
-app.run(debug=True)
+
+central_page.run(debug=True)
