@@ -21,7 +21,9 @@ def create():
 # verifica os dados e a api 
     if data and valida_api and verificar_user_existente(cpf,email) == 'nao':
             Usuario.create(nome=nome,data_de_nascimento=data_nascimento,nome_da_mae=nome_da_mae,cpf=cpf,email=email,senha=senha,saldo=0)
-            return 'deu'
+            return retornar_json({'Success':'Conta criada com sucesso',
+                                  'Message':'Usuario inserido e criado com sucesso',
+                                  'status code':200},200)
 
     elif valida_api is None:
 #   retorna paginas de erro 
@@ -65,5 +67,6 @@ def verificar_user_existente(cpf,email):
     except Exception as e :
         return 'nao'
 
-def retornar_json(data,code):
+# transforma os dados do tipo dicionario em jsonify
+def retornar_json(data : dict,code : int):
     return jsonify(data), code
