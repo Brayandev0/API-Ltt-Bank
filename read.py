@@ -1,7 +1,7 @@
 from flask import Blueprint,request ,jsonify
 from Database.database import Chaves,Usuario
 read = Blueprint("read",__name__)
-
+# pagina pprincipal 
 @read.route('/')
 def read_page():
     api_key = request.args.get("key")
@@ -11,6 +11,8 @@ def read_page():
         a = Usuario.get_by_id(id)
         return f"{a.nome}"
     
+# Verifica a veracidade da chave api enviada e mostra um erro
+
     elif api_verificacao == None :
         return Transformar_em_jsonify({
             'Error':"A chave API inserida e invalida",
@@ -18,11 +20,14 @@ def read_page():
             "status code": 403
         },403)
     else:
+
+#  retorna os erros caso o id seja invalido 
         return Transformar_em_jsonify({
             "Error":"ID invalido",
             "Message": "id inserido nao existe ou e invalido,",
             "status code": 400}, 400)
 
+# verifica se o id informado como argumento e valido 
 def verificar_valor_do_id(id : str):
     if not id:
         return False
