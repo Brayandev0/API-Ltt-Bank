@@ -20,18 +20,20 @@
                 <p>Cria um usuário no banco de dados bancário. Os seguintes campos são obrigatórios:</p>
                 <ul>
                     <li>CPF</li>
-                    <li>Nome</li>
+                    <li>Nome Completo</li>
                     <li>Email</li>
                     <li>Nome da Mãe (mae)</li>
                     <li>Senha</li>
                     <li>Data de nascimento (dob)</li>
                     <li>chave api (key)</li>
                 </ul>
+                <code> key=(chave api) &dob=(nascimento) & mae=(nome da mae) & cpf=(numero do cpf) & email=teste@gmail.com & senha=234 & nome=(nome completo) </code>
             </div>
             
             <div class="command">
                 <h3>/delete</h3>
                 <p>Deleta um usuário específico. É necessário fornecer o campo <code>id</code> e o campo para a chave api <code>key</code>.</p>
+                <code>key= (chave api) & id= (id usuario)</code>
             </div>
 
             <div class="command">
@@ -48,7 +50,8 @@
 
             <div class="command">
                 <h3>/read</h3>
-                <p>Solicita as informações de um usuário específico. É necessário fornecer o campo <code>id</code> do usuário e a chave api <code>key</code>.</p>
+                <p>Solicita as informações de um usuário específico. É necessário fornecer o campo <code>id</code> do usuário e a chave api key.</p>
+                <code> key= (chave api) & id= (id para consulta) </code>
             </div>
         </section>
     </div>

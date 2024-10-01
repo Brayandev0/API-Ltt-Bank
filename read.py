@@ -9,7 +9,13 @@ def read_page():
     api_verificacao = verificar_chave_api(api_key)
     if verificar_valor_do_id(id) and api_verificacao and  verificar_se_o_usuario_exist(id) :
         a = Usuario.get_by_id(id)
-        return f"{a.nome}"
+        return Transformar_em_jsonify({'nome':a.nome,
+                                       'data_nascimento':a.data_de_nascimento,
+                                       'nome da mae':a.nome_da_mae,
+                                       'cpf':a.cpf,
+                                       'email': a.email,
+                                       'atividade da conta':a.atividade,
+                                       'saldo': a.saldo},200)
     
 # Verifica a veracidade da chave api enviada e mostra um erro
 

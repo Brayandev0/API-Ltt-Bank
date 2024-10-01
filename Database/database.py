@@ -1,5 +1,5 @@
 import peewee # type: ignore
-from peewee import CharField,TextField,IntegerField,DateField, Model
+from peewee import CharField,TextField,IntegerField, Model
 db = peewee.MySQLDatabase(
     'Banco_de_Dados',
     user='root',
@@ -18,6 +18,7 @@ class Usuario(Model):
     email = CharField(26)
     senha = TextField()
     saldo = IntegerField()
+    atividade = CharField(10)
     class Meta:
         database = db
 
