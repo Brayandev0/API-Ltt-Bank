@@ -1,5 +1,7 @@
 from flask import Flask,request,Blueprint, jsonify
-from Database.database import Usuario,Chaves
+from Database.database import Usuario,Chaves, Salt
+import bcrypt
+
 create_ = Blueprint('Create',__name__)
 
 @create_.route("/",methods=['GET'])
@@ -20,7 +22,7 @@ def create():
 
 # verifica os dados e a api 
     if data and valida_api and verificar_user_existente(cpf,email) == 'nao':
-            Usuario.create(nome=nome,data_de_nascimento=data_nascimento,nome_da_mae=nome_da_mae,cpf=cpf,email=email,senha=senha,saldo=0)
+            Usuario.create(nome=nome,data_de_nascimento=data_nascimento,nome_da_mae=nome_da_mae,cpf=cpf,email=email,senha=criptografar(senha),saldo=0,atividade='ativa')
             return retornar_json({'Success':'Conta criada com sucesso',
                                   'Message':'Usuario inserido e criado com sucesso',
                                   'status code':200},200)
@@ -72,3 +74,8 @@ def verificar_user_existente(cpf,email):
 # transforma os dados do tipo dicionario em jsonify
 def retornar_json(data : dict,code : int):
     return jsonify(data), code
+
+# criptografa a senha 
+def criptografar(texto : str):
+    salt_da_db : str = Salt.get_by_id(1)
+    return bcrypt.hashpw(texto.encode('utf-8'),salt_da_db.chave.encode('utf-8')).decode('utf-8')
