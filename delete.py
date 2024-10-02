@@ -44,6 +44,8 @@ def pagina_delete():
     
 # verifica a chave api informada com consulta na db 
 def verificar_chave_api(key : str):
+    if key in ['?','%','*','^']:
+        return False
     try:
         Chaves.get(Chaves.key == key)
         return True
@@ -52,6 +54,8 @@ def verificar_chave_api(key : str):
 
 # verifica se o id informado e realmente um numero 
 def verificar_valor_do_id(id : str):
+    if id in ['?','%','*','^']:
+        return False
     if not id:
         return False
     try:

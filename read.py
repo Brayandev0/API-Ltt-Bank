@@ -9,6 +9,7 @@ def read_page():
     api_verificacao = verificar_chave_api(api_key)
     if verificar_valor_do_id(id) and api_verificacao and  verificar_se_o_usuario_exist(id) :
         a = Usuario.get_by_id(id)
+# retorna o usuario solicitado
         return Transformar_em_jsonify({'nome':a.nome,
                                        'data_nascimento':a.data_de_nascimento,
                                        'nome da mae':a.nome_da_mae,
@@ -35,6 +36,8 @@ def read_page():
 
 # verifica se o id informado como argumento e valido 
 def verificar_valor_do_id(id : str):
+    if id in ['?','%','*','^']:
+        return False
     if not id:
         return False
     try:
@@ -45,6 +48,8 @@ def verificar_valor_do_id(id : str):
     
 # verifica a chave api 
 def verificar_chave_api(key : str):
+    if key in ['?','%','*','^']:
+        return False
     try:
         Chaves.get(Chaves.key == key)
         return True
@@ -57,6 +62,8 @@ def Transformar_em_jsonify(data: dict, code: int):
 
 # verifica se o usuario existe na db 
 def verificar_se_o_usuario_exist(data : str):
+    if data in ['?','%','*','^']:
+        return False
     try:
         Usuario.get_by_id(data)
         return True

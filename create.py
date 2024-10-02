@@ -43,6 +43,8 @@ def create():
 # verifica e trata os valores recebidos
 def verificar_valores(valores : list):
     for valor in valores:
+        if valor in ['?','%','*','^']:
+            return False
         if valor == None or not valor:
             return False
         elif len(valor) < 3:
