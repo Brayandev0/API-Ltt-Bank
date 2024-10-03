@@ -7,7 +7,7 @@ Esta API CRUD foi desenvolvida utilizando Python com o framework Flask. O banco 
 
 ## Funcionalidades
 ## **Create**
-Esta funcionalidade permite adicionar novos usuários à base de dados. Abaixo estao algumas funcionalidades da pagina CREATE
+Esta funcionalidade permite adicionar novos usuários à base de dados. Abaixo estao algumas funcionalidades da parte /create
 - Verifica os argumentos passados e verifica a veracidade dos dados
 - Retorna Todas as respostas em JSON
 - Valida a chave APi
@@ -17,7 +17,13 @@ Esta funcionalidade permite adicionar novos usuários à base de dados. Abaixo e
 
 Mensagens de Resposta desta parte da API.
 
-
+**Chave API invalida***
+```{
+  "Error": "Nao autorizado",
+  "Message": "Chave Api Invalida",
+  "status code": 403
+}
+```
 **Argumentos invalidos**
 ```{
   "Error": "Campos invalidos",
@@ -40,5 +46,40 @@ Mensagens de Resposta desta parte da API.
 }
 ```
 ## Delete
-Esta funcionalidade permite Excluir um Usuario do banco de dados pelo id informado. Os argumentos inseridos sao verificados, e verificado se o id e um numero valido e verifica tambem se o usuario existe antes de ser excluido 
-valida e verifica a chave API e nao aceita caracteres especiais (% ' * ^ ) como argumento 
+Esta funcionalidade permite Excluir um Usuario do banco de dados pelo id informado. Abaixo estao algumas funcionalidades da parte /delete
+- O id e verificado se e um numero valido
+- A chave API e verificada antes de realizar a funcionalidade
+- Bloqueia caracteres especiais para evitar vulnerabilidades de injecao de codigo
+- Verifica se o id realmente existe na db antes de excluir 
+
+
+Mensagens de Resposta desta parte da API.
+
+**Argumentos invalidos**
+```{
+  "Erro": "Os parametros nao foram passados corretamente ",
+  "Message": "Argumentos invalidos ou nulos foram inseridos",
+  "status code": 403
+}
+```
+** Chave API invalida***
+```{
+  "Error": "Sua chave api nao foi aceita",
+  "Message": "A chave api inserida e invalida",
+  "status code": 403
+}
+```
+** Usuario inexistente***
+```{
+  "Error": "O id informado e invalido",
+  "Message": "O Usuario com o id 1 nao existe ",
+  "status code": 400
+}
+```
+** Sucesso**
+```{
+  "Message": "O Usuario com o id 9 foi excluido com sucesso",
+  "Success": "Sua requisicao foi aceita",
+  "status code": 200
+}
+```
