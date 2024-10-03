@@ -21,7 +21,8 @@ Esta funcionalidade permite adicionar novos usuários à base de dados. Abaixo e
 - A senha e enviada para a DB criptografada com uma chave segura
 - Todos os parametros sao enviados pela URL
 
-Mensagens de Resposta desta parte da API.
+Respostas da API.
+
 
 **Chave API invalida***
 ```{
@@ -58,8 +59,8 @@ Esta funcionalidade permite Excluir um Usuario do banco de dados pelo id informa
 - Bloqueia caracteres especiais para evitar vulnerabilidades de injecao de codigo
 - Verifica se o id realmente existe na db antes de excluir 
 
+Respostas da API.
 
-Mensagens de Resposta desta parte da API.
 
 **Argumentos invalidos**
 ```{
@@ -98,7 +99,7 @@ Esta funcionalidade permite voce mudar os dados do Usuario pelo id,e passar como
 - Verifica e protege o programa verificando os argumentos passados contra injecao de codigo malicioso
 - Retorna em JSON
 
-Abaixo estarao as respostas desta parte da API.
+Respostas da API.
 
 
 **Argumentos invalidos**
@@ -125,3 +126,35 @@ Abaixo estarao as respostas desta parte da API.
  'Message': 'O Usuario Foi modificado com sucesso',
   'status code': 200
 ```
+
+## Read 
+Esta funcionalidade permite ter acesso aos dados do Usuario pelo id, ela fornece o nome completo, nome da mae, email, cpf, data de nascimento,se a conta esta ativa no banco e fornece o saldo atual. Abaixo estao as principais funcionalidades 
+- Verifica se a chave API e valida
+- Verifica se o id inserido existe na db e se e realmente um numero
+- Verifica se o usuario existe antes da consulta
+- Retorna Respostas em  JSON
+
+Respostas da API.
+
+
+**Id invalido**
+```
+{
+  "Error": "ID invalido",
+  "Message": "id inserido nao existe ou e invalido,",
+  "status code": 400
+}
+```
+**Chave API invalida**
+```
+{
+  "atividade da conta": "ativa",
+  "cpf": "123736123",
+  "data_nascimento": "11112006",
+  "email": "vieirabrayan42@gmail.com",
+  "nome": "Administrador",
+  "nome da mae": "Ryana beonce",
+  "saldo R$": 0
+}
+```
+(Todos os dados acima sao ficticios e nao pertencem a ninguem, apenas o email e verdadeiro)
