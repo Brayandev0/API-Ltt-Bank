@@ -6,7 +6,7 @@ Esta e uma API CRUD desenvolvida em python em conjunto com a biblioteca Flask, u
 e uma criptografia do tipo Salt para manter a seguranca dos dados, todas as respostas da API sao em json 
 
 ## Funcionalidades
--**Create**
+##-**Create**
 Esta funcao permite ao usuario da api adicionar usuarios,ela criptografa a senha com uma criptografia com chave privada e envia os dados para o banco de dados e insere os usuarios no Banco de Dados MySql
 todos os argumentos sao passados pela url, A API ira retornar mensagens de sucesso e erro, a API verifica se os caracteres passados como argumento sao validos, se o usuario existe no banco de dados e se a chave api
 informada e valida, deixarei abaixo as resposas da API 
