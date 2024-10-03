@@ -14,7 +14,7 @@ Esta funcionalidade permite adicionar novos usuários à base de dados. Abaixo e
 - A senha e enviada para a DB criptografada com uma chave segura
 - Todos os parametros sao enviados pela URL
 
-Mensagens retornadas : 
+Mensagens de Resposta desta parte da API : 
 **Argumentos invalidos**
 ```{
   "Error": "Campos invalidos",
