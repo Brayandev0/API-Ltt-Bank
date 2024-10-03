@@ -89,3 +89,39 @@ Mensagens de Resposta desta parte da API.
   "status code": 200
 }
 ```
+## Update
+Esta funcionalidade permite voce mudar os dados do Usuario pelo id,e passar como argumento na url apenas os campos que voce quer alterar. Abaixo estarao algumas funcionalidades desta parte /update
+- Verifica a veracidade dos argumentos passados
+- Verifica se o id passado e valido
+- Verifica se o Usuario existe no banco de dados
+- Verifica a chave API informada
+- Verifica e protege o programa verificando os argumentos passados contra injecao de codigo malicioso
+- Retorna em JSON
+
+Abaixo estarao as respostas desta parte da API.
+
+
+**Argumentos invalidos**
+```
+  "Error':"Argumentos invalidos",
+  "Message": "Os argumentos inseridos sao invalido, revise e tente novamente",
+  "status code": 403
+```
+**Id invalido**
+```
+  'Error':'Id invalido',
+  'Message': 'O id informado e invalido ou nao existe na db',
+  'status code': 400
+```
+**Chave API invalida**
+```
+  'Error':'Chave API invalida',
+  'Message': 'A chave API inserida e invalida ',
+  'status code': 403
+```
+**Sucesso**
+```
+ 'Success':'O Usuario foi modificado',
+ 'Message': 'O Usuario Foi modificado com sucesso',
+  'status code': 200
+```
