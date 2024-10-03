@@ -2,14 +2,18 @@
 ![image](https://github.com/user-attachments/assets/c6fe231e-d507-4244-9cfa-0ab8ddd42895)
 
 ## Descricao 
-Esta e uma API CRUD desenvolvida em python em conjunto com a biblioteca Flask, utilizei tambem o banco de dados MySql
-e uma criptografia do tipo Salt para manter a seguranca dos dados, todas as respostas da API sao em json 
+Esta API CRUD foi desenvolvida utilizando Python com o framework Flask. O banco de dados utilizado é o MySQL, e foi implementada criptografia com Salt para proteger as senhas e assegurar a segurança dos dados. Todas as respostas da API são fornecidas no formato JSON.
+
 
 ## Funcionalidades
 ## **Create**
-Esta funcao permite ao usuario da api adicionar usuarios,ela criptografa a senha com uma criptografia com chave privada e envia os dados para o banco de dados e insere os usuarios no Banco de Dados MySql
-todos os argumentos sao passados pela url, A API ira retornar mensagens de sucesso e erro, a API verifica se os caracteres passados como argumento sao validos, se o usuario existe no banco de dados e se a chave api
-informada e valida, deixarei abaixo as resposas da API 
+Esta funcionalidade permite adicionar novos usuários à base de dados.
+
+- Verifica os argumentos passados e verifica a veracidade dos dados
+- Valida a chave APi
+- Verifica se o Usuario com os dados passados ja existe no banco de dados
+- A senha e enviada para a DB criptografada com uma chave segura
+- Todos os parametros sao enviados pela URL
 
 **Argumentos invalidos**
 ```{
@@ -32,3 +36,6 @@ informada e valida, deixarei abaixo as resposas da API
   "status code": 200
 }
 ```
+## Delete
+Esta funcionalidade permite Excluir um Usuario do banco de dados pelo id informado. Os argumentos inseridos sao verificados, e verificado se o id e um numero valido e verifica tambem se o usuario existe antes de ser excluido 
+valida e verifica a chave API e nao aceita caracteres especiais (% ' * ^ ) como argumento 
