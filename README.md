@@ -7,14 +7,14 @@ Esta API CRUD foi desenvolvida utilizando Python com o framework Flask. O banco 
 
 ## Funcionalidades
 ## **Create**
-Esta funcionalidade permite adicionar novos usuários à base de dados.
-
+Esta funcionalidade permite adicionar novos usuários à base de dados. Abaixo estao algumas funcionalidades da pagina CREATE
 - Verifica os argumentos passados e verifica a veracidade dos dados
 - Valida a chave APi
 - Verifica se o Usuario com os dados passados ja existe no banco de dados
 - A senha e enviada para a DB criptografada com uma chave segura
 - Todos os parametros sao enviados pela URL
 
+Mensagens retornadas : 
 **Argumentos invalidos**
 ```{
   "Error": "Campos invalidos",
