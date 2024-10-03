@@ -79,13 +79,13 @@ Respostas da API.
 ** Usuario inexistente***
 ```{
   "Error": "O id informado e invalido",
-  "Message": "O Usuario com o id 1 nao existe ",
+  "Message": "O Usuario com o id { id informado} nao existe ",
   "status code": 400
 }
 ```
 ** Sucesso**
 ```{
-  "Message": "O Usuario com o id 9 foi excluido com sucesso",
+  "Message": "O Usuario com o id { id informado } foi excluido com sucesso",
   "Success": "Sua requisicao foi aceita",
   "status code": 200
 }
