@@ -2,7 +2,7 @@
 ![image](https://github.com/user-attachments/assets/c6fe231e-d507-4244-9cfa-0ab8ddd42895)
 
 ## Descricao 
-Esta API CRUD foi desenvolvida utilizando Python com o framework Flask. O banco de dados utilizado é o MySQL, e foi implementada criptografia com Salt para proteger as senhas e assegurar a segurança dos dados. Todas as respostas da API são fornecidas no formato JSON.
+Esta API CRUD foi desenvolvida utilizando Python com o framework Flask. O banco de dados utilizado é o MySQL, e foi implementada criptografia com Salt para proteger as senhas e assegurar a segurança dos dados. Todas as respostas da API são fornecidas no formato JSON, A API esta operando na porta 5000 e Foi desenvolvida para um banco ficticio 
 ## Tecnologias Usadas
 - Banco de dados MySql
 - biblioteca de criptografia Bcrypt e uma chave privada salva na db
