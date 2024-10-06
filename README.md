@@ -162,7 +162,7 @@ Respostas da API.
 ## Tela do Banco de Dados ( DBeaver )
 
 ## Tela dos dados de Usuarios 
-![image](https://github.com/user-attachments/assets/2fdcd290-a82c-49b4-b1e2-f1600789cbef)
+![image](https://github.com/user-attachments/assets/5d094570-f7bb-42f9-8b31-2d4ca4de43c9)
 
 Tela de como ficam salvos os logins do Usuario, a senha e criptografada 
 
