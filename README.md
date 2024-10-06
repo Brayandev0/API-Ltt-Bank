@@ -160,10 +160,11 @@ Respostas da API.
 (Todos os dados acima sao ficticios e nao pertencem a ninguem, apenas o email e verdadeiro)
 
 ## Tela do Banco de Dados ( DBeaver )
-![image](https://github.com/user-attachments/assets/559a5f10-ffe2-41fd-abd1-ff30ddf76c2d).
 
+## Tela dos dados de Usuarios 
+![image](https://github.com/user-attachments/assets/2fdcd290-a82c-49b4-b1e2-f1600789cbef)
 
-Tela de como ficam salvos os logins do Usuario 
+Tela de como ficam salvos os logins do Usuario, a senha e criptografada 
 
 ## Tela das chaves APi
 
