@@ -158,3 +158,26 @@ Respostas da API.
 }
 ```
 (Todos os dados acima sao ficticios e nao pertencem a ninguem, apenas o email e verdadeiro)
+
+## Tela do Banco de Dados ( DBeaver )
+![image](https://github.com/user-attachments/assets/559a5f10-ffe2-41fd-abd1-ff30ddf76c2d).
+
+
+Tela de como ficam salvos os logins do Usuario 
+
+## Tela das chaves APi
+
+![image](https://github.com/user-attachments/assets/97f0b0c7-c0e2-4c2a-9da3-049a453b0ebb).
+
+
+As chaves API sao criptografadas com uma chave diferente da chave dos logins, a chave e privada e armazenada na db 
+
+## Tela das Chaves privadas de criptografia 
+![image](https://github.com/user-attachments/assets/5d2dab4d-54ba-4962-93c9-37d58e35ad20).
+
+
+as chaves foram criadas utilizando a biblioteca bcrypt, as chaves de login e chave api sao diferentes deixando a seguranca maior 
+
+
+
+
