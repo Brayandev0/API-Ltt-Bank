@@ -16,4 +16,4 @@ app.register_blueprint(update_page, url_prefix="/update")
 def Pagina_principal():
     return render_template('documentacao_api.html')
 
-app.run()
+app.run(debug=True)

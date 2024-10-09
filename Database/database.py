@@ -35,6 +35,7 @@ class Chaves(Model):
 # cria a tabela salt 
 class Salt(Model):
     chave = CharField(60)
+    chave_api_keys = CharField(50)
     class Meta:
         database = db
 

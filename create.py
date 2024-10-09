@@ -2,6 +2,7 @@ from flask import Flask,request,Blueprint, jsonify
 from Database.database import Usuario,Chaves, Salt
 import bcrypt
 
+
 create_ = Blueprint('Create',__name__)
 
 @create_.route("/",methods=['GET'])
@@ -21,8 +22,8 @@ def create():
     valida_api = verificar_chave_api(key_api)
 
 # verifica os dados e a api 
-    if data and valida_api and verificar_user_existente(cpf,email) == 'nao':
-            Usuario.create(nome=nome,data_de_nascimento=data_nascimento,nome_da_mae=nome_da_mae,cpf=cpf,email=email,senha=criptografar(senha),saldo=0,atividade='ativa')
+    if data and valida_api and verificar_user_existente(cpf,email):
+            Usuario.create(nome=nome,data_de_nascimento=data_nascimento,nome_da_mae=nome_da_mae,cpf=cpf,email=email,senha=criptografar_Salt(senha),saldo=0,atividade='ativa')
             return retornar_json({'Success':'Conta criada com sucesso',
                                   'Message':'Usuario inserido e criado com sucesso',
                                   'status code':200},200)
@@ -33,7 +34,7 @@ def create():
         return retornar_json({'Error':'Nao autorizado',
          'Message':'Chave Api Invalida',
          'status code': 403},403)
-    elif verificar_user_existente(cpf,email) == 'existe':
+    elif not verificar_user_existente(cpf,email):
         return retornar_json({'Error':'Usuario ja existe',
                               'Message':'O usuario ja existe no banco de dados',
                               'status code': 403},403)
@@ -63,19 +64,17 @@ def verificar_chave_api(key : str):
 
 # verifica se o cpf e o email estao cadastrados na db 
 
-def verificar_user_existente(cpf,email):
-    try:
-        Usuario.select().where(Usuario.cpf == cpf).get()
-        Usuario.select().where(Usuario.email == email).get()
-        return f'existe'
-    except Exception as e :
-        return 'nao'
+def verificar_user_existente(cpf : str ,email : str):
+    if Usuario.select().where((Usuario.cpf == cpf) | (Usuario.email == email)).exists():
+        return False
+    return True
 
 # transforma os dados do tipo dicionario em jsonify
 def retornar_json(data : dict,code : int):
     return jsonify(data), code
 
-# criptografa a senha 
-def criptografar(texto : str):
+# criptografa a senha com Salt
+def criptografar_Salt(texto : str):
     salt_da_db : str = Salt.get_by_id(1)
     return bcrypt.hashpw(texto.encode('utf-8'),salt_da_db.chave.encode('utf-8')).decode('utf-8')
+

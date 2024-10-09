@@ -16,7 +16,7 @@ def read_page():
                                        'cpf':a.cpf,
                                        'email': a.email,
                                        'atividade da conta':a.atividade,
-                                       'saldo': a.saldo},200)
+                                       'saldo R$': a.saldo},200)
     
 # Verifica a veracidade da chave api enviada e mostra um erro
 
