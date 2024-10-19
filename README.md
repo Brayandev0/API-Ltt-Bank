@@ -136,6 +136,13 @@ Esta funcionalidade permite ter acesso aos dados do Usuario pelo id, ela fornece
 
 Respostas da API.
 
+**Chave API invalida***
+```{
+  "Error": "Nao autorizado",
+  "Message": "Chave Api Invalida",
+  "status code": 403
+}
+```
 
 **Id invalido**
 ```
@@ -145,7 +152,7 @@ Respostas da API.
   "status code": 400
 }
 ```
-**Chave API invalida**
+**Sucesso**
 ```
 {
   "atividade da conta": "ativa",
